@@ -104,7 +104,7 @@ export default function MyTicketsPage() {
       const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userId') || '6'; 
       
-      const res = await fetch(`http://localhost:3001/tickets/my-creations?userId=${userId}`, {
+      const res = await fetch(`https://ticketing-system-be-lkut.onrender.com/tickets/my-creations?userId=${userId}`, {
         headers: { 
           'Authorization': token ? `Bearer ${token}` : ''
         }
@@ -130,7 +130,7 @@ export default function MyTicketsPage() {
     setComments([]);
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:3001/tickets/${ticket.id}/comments`, {
+      const res = await fetch(`https://ticketing-system-be-lkut.onrender.com/tickets/${ticket.id}/comments`, {
         headers: { 'Authorization': token ? `Bearer ${token}` : '' }
       });
       if (res.ok) {
@@ -152,7 +152,7 @@ export default function MyTicketsPage() {
       const token = localStorage.getItem('token');
       const currentUserId = localStorage.getItem('userId') || '6';
 
-      const res = await fetch(`http://localhost:3001/tickets/${selectedTicket.id}/comments`, {
+      const res = await fetch(`https://ticketing-system-be-lkut.onrender.com/tickets/${selectedTicket.id}/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -210,7 +210,7 @@ export default function MyTicketsPage() {
       const token = localStorage.getItem('token');
       const currentUserId = localStorage.getItem('userId') || '6';
 
-      const res = await fetch(`http://localhost:3001/tickets/${selectedTicket.id}/close`, {
+      const res = await fetch(`https://ticketing-system-be-lkut.onrender.com/tickets/${selectedTicket.id}/close`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -243,7 +243,7 @@ export default function MyTicketsPage() {
       const token = localStorage.getItem('token');
       const currentUserId = localStorage.getItem('userId') || '6';
 
-      const res = await fetch(`http://localhost:3001/tickets/${selectedTicket.id}/reopen`, {
+      const res = await fetch(`https://ticketing-system-be-lkut.onrender.com/tickets/${selectedTicket.id}/reopen`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

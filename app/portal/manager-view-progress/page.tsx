@@ -17,7 +17,7 @@ export default function ManagerViewProgressPage() {
     }
 
     // Port 3001 par target user ki identity query param mein send kar di
-    fetch(`http://localhost:3001/department-progress/manager-analytics?userId=${loggedInUser}`)
+    fetch(`https://ticketing-system-be-lkut.onrender.com/department-progress/manager-analytics?userId=${loggedInUser}`)
       .then((res) => {
         if (!res.ok) throw new Error('Department data load karne mein masla hua.');
         return res.json();

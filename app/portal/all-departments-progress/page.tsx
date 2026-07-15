@@ -10,7 +10,7 @@ export default function AllDepartmentsProgressPage() {
   const [expandedDeptId, setExpandedDeptId] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost:3001/department-progress/all-departments')
+    fetch('https://ticketing-system-be-lkut.onrender.com/department-progress/all-departments')
       .then((res) => {
         if (!res.ok) throw new Error('Data load karne mein masla hua.');
         return res.json();

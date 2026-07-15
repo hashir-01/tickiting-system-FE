@@ -53,7 +53,7 @@ export default function LoginPage() {
     setIsLoading(true);
 
     try {
-      const res = await fetch('http://localhost:3001/users/login', {
+      const res = await fetch('https://ticketing-system-be-lkut.onrender.com/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

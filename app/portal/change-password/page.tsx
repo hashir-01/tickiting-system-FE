@@ -47,7 +47,7 @@ export default function ChangePasswordPage() {
       setLoading(true);
       const token = localStorage.getItem('token'); 
       
-      const response = await fetch('http://localhost:3001/users/change-password', {
+      const response = await fetch('https://ticketing-system-be-lkut.onrender.com/users/change-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

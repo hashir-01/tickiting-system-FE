@@ -123,7 +123,7 @@ export default function PendingActionsPage() {
       const token = localStorage.getItem('token');
       const userRole = localStorage.getItem('userRole') || 'IAM';
 
-      const res = await fetch('http://localhost:3001/tickets/pending', {
+      const res = await fetch('https://ticketing-system-be-lkut.onrender.com/tickets/pending', {
         headers: { 
           'Authorization': `Bearer ${token}`,
           'x-user-id': String(currentUserId),
@@ -152,7 +152,7 @@ export default function PendingActionsPage() {
     setComments([]);
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:3001/tickets/${ticket.id}/comments`, {
+      const res = await fetch(`https://ticketing-system-be-lkut.onrender.com/tickets/${ticket.id}/comments`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -173,7 +173,7 @@ export default function PendingActionsPage() {
     try {
       const token = localStorage.getItem('token');
 
-      const res = await fetch(`http://localhost:3001/tickets/${selectedTicket.id}/comments`, {
+      const res = await fetch(`https://ticketing-system-be-lkut.onrender.com/tickets/${selectedTicket.id}/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -201,7 +201,7 @@ export default function PendingActionsPage() {
     try {
       const activeUserId = Number(localStorage.getItem('userId')) || 6; 
 
-      const response = await fetch(`http://localhost:3001/tickets/${ticketId}/toggle-progress`, {
+      const response = await fetch(`https://ticketing-system-be-lkut.onrender.com/tickets/${ticketId}/toggle-progress`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -254,7 +254,7 @@ export default function PendingActionsPage() {
   const executeRevert = async () => {
     if (!selectedTicket) return;
     try {
-      const res = await fetch(`http://localhost:3001/tickets/${selectedTicket.id}/revert`, {
+      const res = await fetch(`https://ticketing-system-be-lkut.onrender.com/tickets/${selectedTicket.id}/revert`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ clickerId: currentUserId }),
@@ -277,7 +277,7 @@ export default function PendingActionsPage() {
   const executeMarkAsResolved = async () => {
     if (!selectedTicket) return;
     try {
-      const res = await fetch(`http://localhost:3001/tickets/${selectedTicket.id}/toggle-progress`, {
+      const res = await fetch(`https://ticketing-system-be-lkut.onrender.com/tickets/${selectedTicket.id}/toggle-progress`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ currentStatus: 'RESOLVED_TRIGGER' }), 
@@ -301,10 +301,10 @@ export default function PendingActionsPage() {
     setSelectedUser('');
     setUserSearchText('');
     try {
-      const dRes = await fetch('http://localhost:3001/tickets/meta/departments');
+      const dRes = await fetch('https://ticketing-system-be-lkut.onrender.com/tickets/meta/departments');
       if (dRes.ok) setDepartments(await dRes.json());
       
-      const uRes = await fetch(`http://localhost:3001/tickets/meta/dept-users/${currentUserId}`);
+      const uRes = await fetch(`https://ticketing-system-be-lkut.onrender.com/tickets/meta/dept-users/${currentUserId}`);
       if (uRes.ok) setDeptUsers(await uRes.json());
     } catch (err) {
       console.error('Metadata context aggregation failed:', err);
@@ -314,7 +314,7 @@ export default function PendingActionsPage() {
   const executeReassign = async () => {
     if (!selectedTicket) return;
     try {
-      const res = await fetch(`http://localhost:3001/tickets/${selectedTicket.id}/reassign`, {
+      const res = await fetch(`https://ticketing-system-be-lkut.onrender.com/tickets/${selectedTicket.id}/reassign`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -345,7 +345,7 @@ export default function PendingActionsPage() {
     setSelectedUser('');
     setUserSearchText('');
     try {
-      const uRes = await fetch(`http://localhost:3001/tickets/meta/dept-users/${currentUserId}`);
+      const uRes = await fetch(`https://ticketing-system-be-lkut.onrender.com/tickets/meta/dept-users/${currentUserId}`);
       if (uRes.ok) setDeptUsers(await uRes.json());
     } catch (err) {
       console.error(err);
@@ -355,7 +355,7 @@ export default function PendingActionsPage() {
   const executeForward = async () => {
     if (!selectedTicket || !selectedUser) return;
     try {
-      const res = await fetch(`http://localhost:3001/tickets/${selectedTicket.id}/forward`, {
+      const res = await fetch(`https://ticketing-system-be-lkut.onrender.com/tickets/${selectedTicket.id}/forward`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

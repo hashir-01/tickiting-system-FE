@@ -27,7 +27,7 @@ export default function CreateTicketPage() {
   useEffect(() => {
     const fetchLiveDepartments = async () => {
       try {
-        const response = await fetch('http://localhost:3001/department'); 
+        const response = await fetch('https://ticketing-system-be-lkut.onrender.com/department'); 
         const data = await response.json();
         
         if (response.ok && Array.isArray(data)) {
@@ -74,7 +74,7 @@ export default function CreateTicketPage() {
     const token = localStorage.getItem('token'); 
 
     try {
-      const response = await fetch('http://localhost:3001/tickets/create', {
+      const response = await fetch('https://ticketing-system-be-lkut.onrender.com/tickets/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -35,7 +35,7 @@ export default function MyPerformancePage() {
     const loggedInUser = typeof window !== 'undefined' ? localStorage.getItem('userId') : null;
     const employeeId = loggedInUser ? Number(loggedInUser) : 1; 
 
-    fetch(`http://localhost:3001/employee-performance/my-metrics?employeeId=${employeeId}`, {
+    fetch(`https://ticketing-system-be-lkut.onrender.com/employee-performance/my-metrics?employeeId=${employeeId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'

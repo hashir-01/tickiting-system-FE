@@ -29,7 +29,7 @@ export default function ManageDepartmentsPage() {
   // 🔄 Fetch all current departments for the selection dropdown
   const fetchDepartments = async () => {
     try {
-      const res = await fetch('http://localhost:3001/department', {
+      const res = await fetch('https://ticketing-system-be-lkut.onrender.com/department', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
         }
@@ -57,7 +57,7 @@ export default function ManageDepartmentsPage() {
     setIsCreating(true);
 
     try {
-      const res = await fetch('http://localhost:3001/department', {
+      const res = await fetch('https://ticketing-system-be-lkut.onrender.com/department', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ export default function ManageDepartmentsPage() {
     setIsDeleting(true);
 
     try {
-      const res = await fetch(`http://localhost:3001/department/${selectedDeptId}`, {
+      const res = await fetch(`https://ticketing-system-be-lkut.onrender.com/department/${selectedDeptId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,

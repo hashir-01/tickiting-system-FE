@@ -55,7 +55,7 @@ export default function ManageAccountsPage() {
 
   const fetchDepts = async () => {
     try {
-      const res = await fetch('http://localhost:3001/department', {
+      const res = await fetch('https://ticketing-system-be-lkut.onrender.com/department', {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
       if (res.ok) {
@@ -87,7 +87,7 @@ export default function ManageAccountsPage() {
     setIsSubmitting(true);
 
     try {
-      const res = await fetch('http://localhost:3001/users/create', {
+      const res = await fetch('https://ticketing-system-be-lkut.onrender.com/users/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -122,7 +122,7 @@ export default function ManageAccountsPage() {
     setIsSearching(true);
 
     try {
-      const res = await fetch(`http://localhost:3001/users?search=${encodeURIComponent(searchQuery)}`, {
+      const res = await fetch(`https://ticketing-system-be-lkut.onrender.com/users?search=${encodeURIComponent(searchQuery)}`, {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
       if (res.ok) {
@@ -141,7 +141,7 @@ export default function ManageAccountsPage() {
     const { id } = deleteConfirmation;
 
     try {
-      const res = await fetch(`http://localhost:3001/users/${id}`, {
+      const res = await fetch(`https://ticketing-system-be-lkut.onrender.com/users/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
@@ -180,7 +180,7 @@ export default function ManageAccountsPage() {
         bodyPayload.password = editPassword; 
       }
 
-      const res = await fetch(`http://localhost:3001/users/${editingUser.id}`, {
+      const res = await fetch(`https://ticketing-system-be-lkut.onrender.com/users/${editingUser.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
