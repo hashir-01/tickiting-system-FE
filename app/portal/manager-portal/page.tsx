@@ -24,13 +24,13 @@ export default function IamDashboardPage() {
     const storedDept = localStorage.getItem('userDepartment');
 
     if (storedName || storedEmail || storedRole || storedDept) {
-      setProfile({
-        name: storedName,
-        email: storedEmail,
-        role: storedRole,
-        department: storedDept,
-      });
-    }
+  setProfile({
+    name: storedName || '',
+    email: storedEmail || '',
+    role: storedRole || '',
+    department: storedDept || '',
+  });
+}
   }, []);
 
   return (
